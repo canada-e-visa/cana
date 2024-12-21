@@ -1,4 +1,3 @@
-<script>
 document.addEventListener('DOMContentLoaded', function() {
   // قائمة الدول
   const countries = [
@@ -84,7 +83,7 @@ function toggleApplicationNumberField() {
   if (statusSelect && applicationNumberField) {
     applicationNumberField.style.display = statusSelect.value === 'new-applicant' ? 'block' : 'none';
   } else {
-    console.error('Element with id "status" or "applicationNumberField" not found.'); // العناصر غير موجودة
+    console.error('Element with id "status" or "applicationNumberField" not found.');
   }
 }
 
@@ -191,4 +190,3 @@ function showResults(data) {
 document.querySelector('.close').addEventListener('click', function() {
   document.getElementById('results-modal').style.display = 'none';
 });
-</script>
