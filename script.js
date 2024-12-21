@@ -1,24 +1,30 @@
+<script>
 document.addEventListener('DOMContentLoaded', function() {
   // قائمة الدول
   const countries = [
-    "Algeria", "Bahrain", "Comoros", "Djibouti", "Egypt", "Iraq", "Jordan", "Kuwait", 
-    "Lebanon", "Libya", "Mauritania", "Morocco", "Oman", "Palestine", "Qatar", 
+    "Algeria", "Bahrain", "Comoros", "Djibouti", "Egypt", "Iraq", "Jordan", "Kuwait",
+    "Lebanon", "Libya", "Mauritania", "Morocco", "Oman", "Palestine", "Qatar",
     "Saudi Arabia", "Somalia", "Sudan", "Syria", "Tunisia", "United Arab Emirates", "Yemen",
     "Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium",
     "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark",
     "Estonia", "Finland", "France", "Georgia", "Germany", "Greece", "Hungary", "Iceland",
     "Ireland", "Italy", "Kazakhstan", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg",
     "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Norway",
-    "Poland", "Portugal", "Romania", "Russia", "San Marino", "Serbia", "Slovakia", 
+    "Poland", "Portugal", "Romania", "Russia", "San Marino", "Serbia", "Slovakia",
     "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "United Kingdom"
   ];
 
-  // تحديد عنصر select لعرض قائمة الدول
+  // تحديد عناصر select لعرض قائمة الدول وقيم التواريخ
   const countrySelect = document.getElementById('countryOfBirth');
+  const issueDaySelect = document.getElementById('issueDay');
+  const issueMonthSelect = document.getElementById('issueMonth');
+  const issueYearSelect = document.getElementById('issueYear');
+  const expiryDaySelect = document.getElementById('expiryDay');
+  const expiryMonthSelect = document.getElementById('expiryMonth');
+  const expiryYearSelect = document.getElementById('expiryYear');
 
-  // التحقق من وجود عنصر select قبل إضافة الخيارات
+  // التحقق من وجود عناصر select قبل إضافة الخيارات
   if (countrySelect) {
-    // إضافة كل دولة كخيار في عنصر select
     countries.forEach(country => {
       const option = document.createElement('option');
       option.value = country;
@@ -26,7 +32,48 @@ document.addEventListener('DOMContentLoaded', function() {
       countrySelect.appendChild(option);
     });
   } else {
-    console.error('Element with id "countryOfBirth" not found.'); // عنصر select غير موجود
+    console.error('Element with id "countryOfBirth" not found.');
+  }
+
+  // إضافة القيم إلى عناصر select الخاصة بالتواريخ
+  const days = Array.from({ length: 31 }, (_, i) => i + 1); // الأيام من 1 إلى 31
+  const months = Array.from({ length: 12 }, (_, i) => i + 1); // الأشهر من 1 إلى 12
+  const issueYears = Array.from({ length: 2024 - 1980 + 1 }, (_, i) => 1980 + i); // السنوات من 1980 إلى 2024
+  const expiryYears = Array.from({ length: 2055 - 1980 + 1 }, (_, i) => 1980 + i); // السنوات من 1980 إلى 2055
+
+  // التحقق من وجود عناصر select الخاصة بالتواريخ قبل إضافة الخيارات
+  if (issueDaySelect && issueMonthSelect && issueYearSelect && expiryDaySelect && expiryMonthSelect && expiryYearSelect) {
+    days.forEach(day => {
+      const option = document.createElement('option');
+      option.value = day;
+      option.textContent = day;
+      issueDaySelect.appendChild(option);
+      expiryDaySelect.appendChild(option.cloneNode(true));
+    });
+
+    months.forEach(month => {
+      const option = document.createElement('option');
+      option.value = month;
+      option.textContent = month;
+      issueMonthSelect.appendChild(option);
+      expiryMonthSelect.appendChild(option.cloneNode(true));
+    });
+
+    issueYears.forEach(year => {
+      const option = document.createElement('option');
+      option.value = year;
+      option.textContent = year;
+      issueYearSelect.appendChild(option);
+    });
+
+    expiryYears.forEach(year => {
+      const option = document.createElement('option');
+      option.value = year;
+      option.textContent = year;
+      expiryYearSelect.appendChild(option);
+    });
+  } else {
+    console.error('Elements for date of issue or expiry not found.');
   }
 });
 
@@ -144,3 +191,4 @@ function showResults(data) {
 document.querySelector('.close').addEventListener('click', function() {
   document.getElementById('results-modal').style.display = 'none';
 });
+</script>
