@@ -99,10 +99,10 @@ const usersDatabase = [
     expiryDay: '27',
     expiryMonth: '09',
     expiryYear: '2033',
-    status: 'مقبول',
-    submissionDate: '2024-04-01',
-    applicantName: 'John Doe',
-    notes: 'None'
+    status: 'Under Processing',
+    submissionDate: '19-12-2024',
+    applicantName: 'TAHA ALDANNAWI',
+    notes: '⏳'
   },
   {
     applicationNumber: 'x789012',
@@ -114,10 +114,10 @@ const usersDatabase = [
     expiryDay: '09',
     expiryMonth: '02',
     expiryYear: '2025',
-    status: 'معلق',
-    submissionDate: '2023-02-15',
-    applicantName: 'Jane Smith',
-    notes: 'يرجى تقديم المزيد من المستندات'
+    status: 'Under Processing',
+    submissionDate: '19-12-2024',
+    applicantName: 'TAHA ALDANNAWI',
+    notes: '⏳'
   }
 ];
 
