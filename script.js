@@ -90,15 +90,15 @@ function toggleApplicationNumberField() {
 // قاعدة بيانات افتراضية للمستخدمين
 const usersDatabase = [
   {
-    applicationNumber: 'j553344',
-    countryOfBirth: 'Syria',
-    passportNumber: 'N01133502',
-    issueDay: '19',
-    issueMonth: '04',
-    issueYear: '2024',
-    expiryDay: '18',
-    expiryMonth: '10',
-    expiryYear: '2026',
+    applicationNumber: 'J902812',
+    countryOfBirth: 'Lebanon',
+    passportNumber: 'LR3724072',
+    issueDay: '28',
+    issueMonth: '09',
+    issueYear: '2023',
+    expiryDay: '27',
+    expiryMonth: '09',
+    expiryYear: '2033',
     status: 'مقبول',
     submissionDate: '2024-04-01',
     applicantName: 'John Doe',
@@ -174,6 +174,14 @@ function showResults(data) {
     submissionDateElem.textContent = data.submissionDate;
     applicantNameElem.textContent = data.applicantName;
     notesElem.textContent = data.notes;
+
+    if (data.status === 'Approved') {
+  statusElem.style.color = 'green'; // تغيير اللون إلى الأخضر إذا كانت الحالة "Approved"
+} else if (data.status === 'Under Processing') {
+  statusElem.style.color = 'Gold'; // تغيير اللون إلى الأصفر إذا كانت الحالة "Under Processing"
+} else if (data.status === 'Canceled') {
+  statusElem.style.color = 'red'; // تغيير اللون إلى الأحمر إذا كانت الحالة "Canceled"
+}
 
     // تغيير لون النص في خانة الملاحظات إلى الأحمر
     notesElem.style.color = 'red';
